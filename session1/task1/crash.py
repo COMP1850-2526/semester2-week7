@@ -1,0 +1,10 @@
+# Run this program and observe what happens
+
+def assign_values(x):
+    for i in range(100):
+        x[i] = i
+
+if __name__ == "__main__":
+    data = [0] * 10
+    assign_values(data)
+    print("Done!")
