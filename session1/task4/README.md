@@ -4,8 +4,8 @@
 generating a final grade of 'Distinction', 'Pass' or 'Fail' for each
 student named in the file, based on their exam mark.
 
-This program has **four** bugs in it. In this task, we will use `pdb` to
-investigate some of these bugs, and unit testing to find the others.
+This program has **four** bugs in it. In this task, we will use Pdb to
+investigate two of these bugs, and unit testing to find the others.
 
 ## First Bug
 
@@ -47,10 +47,9 @@ investigate some of these bugs, and unit testing to find the others.
 
 7. Examine the contents of `sys.argv` with
 
-       print sys.argv
+       p sys.argv
 
-   You can appreviate the command to `p` if you prefer. You should see the
-   following list displayed:
+   You should see the following list displayed:
 
        ['grades.py', 'marks.csv']
 
@@ -70,8 +69,8 @@ investigate some of these bugs, and unit testing to find the others.
 
 ## Second Bug
 
-Note: from this point on, we use the abbreviated versions of `pdb`
-commands where possible.
+Note: from this point on, we use the abbreviated versions of Pdb commands
+where possible.
 
 1. Load the program into the debugger, in exactly the same way as you did
    when investigating the first bug. Then establish a breakpoint inside
