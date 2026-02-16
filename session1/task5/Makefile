@@ -1,7 +1,7 @@
 # Task 5 Makefile
 
 CFLAGS = -g
-EXECS = factorial
+EXECS = factorial vars
 
 help:
 	@echo "Enter 'make' followed by name of an executable"

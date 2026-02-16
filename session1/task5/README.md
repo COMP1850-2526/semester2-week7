@@ -6,6 +6,99 @@ This task explores the basic features of the GNU Debugger, GDB.
 for this task. **You do not need to understand how this works!** We will cover
 Makefiles in a later session.
 
+## `vars.c`
+
+This program creates some variables, using a mixture of static (stack-based)
+and dynamic (heap-based) memory allocation.
+
+1. Compile the program in the terminal using
+
+       make vars
+
+   You can see the compiler command echoed in the terminal. Note the use
+   of the `-g` option, allowing the program to be debugged.
+
+   Run the program in the terminal, with
+
+       ./vars
+
+2. Now load the program into GDB:
+
+       gdb vars
+
+   List some of the source code by entering the command `list` a couple of
+   times. (You can abbreviate `list` to `l`, if you like.)
+
+3. Create a breakpoint at line 10, like so:
+
+       break 10
+
+   You can abbreviate `break` to `b` if you prefer.
+
+4. Run the program with `run` (or `r`, if you prefer). Execution should
+   pause at line 10.
+
+5. Print out the current values of the program's local variables with
+
+       p i
+       p j
+       p static_array
+       p dyn_array
+
+   Notice how the entire contents of `static_array` are displayed. You may
+   find that some of the values in the array are zero and others are not.
+   Stack-based arrays are not initialized by default.
+
+   Depending on where you try this, you may find that `dyn_array` displays
+   as `0x0` (NULL), which is not a valid memory address for the program.
+   If you see a non-null value for `dyn_array` it still doesn't represent a
+   memory address that we should use. We need to either make `dyn_array`
+   point to some existing storage or allocate new storage for it.
+
+6. Enter this command:
+
+       until 14
+
+   This will resume execution until we reach line 14 - i.e., after the `for`
+   loop that initializes `static_array`. Note that this command does not
+   create a new breakpoint.
+
+   Press the up arrow key a couple of times, to bring back the command that
+   prints `static_array`, then press Enter. You should now see the value
+   0.5 appearing in every element of the array.
+
+7. Create a new breakpoint on line 20, with `b 20`. Check on the status of
+   the breakpoints using `info breakpoints` or `info b` for short.
+
+   Then resume execution by entering `continue` (or `c`, if you prefer).
+   Execution should pause at line 20.
+
+   Press the up arrow key a few times, to bring back the command that prints
+   `dyn_array`. This pointer should now have a different value, because it
+   points to the memory allocated by `malloc()`.
+
+8. Try the following commands:
+
+   ```
+   p dyn_array + 1
+   p dyn_array + 2
+   p *(dyn_array + 1)
+   p *(dyn_array + 2)
+   ```
+
+   You can see that the `p` command prints *expressions*, rather than being
+   limited to simple variables. The first two expressions produce pointers to
+   the second and third elements of `dyn_array`, respectively. You can see
+   that the displayed memory address goes up by 4 each time - the size of an
+   `int`.
+
+   The third and fourth commands dereference those two pointer expressions
+   that represent the second and third elements, showing us the values stored
+   at those locations.
+
+9. Enter `c` to resume executing the program. It should run to completion.
+   Then enter `quit` or `q` to exit the debugger.
+
 ## `factorial.c`
 
 This program computes the factorial of the integer provided on the command
@@ -14,9 +107,6 @@ line, but it has some problems.
 1. Compile the program in the terminal with
 
        make factorial
-
-   You can see the compiler command echoed in the terminal. Note the use
-   of the `-g` option, allowing the program to be debugged.
 
 2. Run the program in the terminal, first without a command line argument,
    then using `5` as the sole argument:
@@ -49,7 +139,7 @@ line, but it has some problems.
        p argv[0]
        p argv[1]
 
-5. Use `next` or `n` twice, to move parse the code that parses the command
+5. Use `next` or `n` twice, to move past the code that parses the command
    line. Print the variable `value`, to check that it is equal to 5 as
    expected.
 
