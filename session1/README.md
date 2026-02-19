@@ -9,3 +9,5 @@
 `task4`: Debugging Python using Pdb
 
 `task5`: Debugging C using GDB
+
+`advanced`: Ideas for more advanced things you can try.
