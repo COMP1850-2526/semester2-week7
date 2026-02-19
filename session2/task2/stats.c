@@ -20,10 +20,13 @@ void read_data(const char* filename, float data[], int* size)
             if (fgets(line, MAX_LENGTH, infile) == NULL) {
                 break;
             }
+
             sscanf(line, "%f", &value);
             data[i] = value;
             (*size)++;
         }
+
+        fclose(infile);
     }
 }
 

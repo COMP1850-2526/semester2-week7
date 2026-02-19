@@ -19,7 +19,7 @@ correctly, but let's use GDB to see what's happening instead.
 
        info locals
 
-   Counting variables `fizz`, `buzz` and `fizzbuzz` should all have the
+   Counting variables `fizz`, `buzz` and `fizz_buzz` should all have the
    value 0. You might see that loop variable `i` doesn't have a sensible
    initial value yet. This is because it isn't assigned its initial value
    of 0 until the loop actually starts.

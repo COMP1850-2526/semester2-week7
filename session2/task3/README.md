@@ -104,6 +104,9 @@ nature of this problem.
    days compilers often add code that can detect 'stack smashing' at run time
    and warn you about it.
 
-8. **Optional**: fix the bug, and verify that your fix works.
+8. **Optional**: fix the bug by changing a **single line** of `testlogin.c`.
+   Verify that your fix works.
 
-   This should required a change to only a single line in `testlogin.c`!
+9. **Optional**: look at the `if` statement near the start of the file,
+   just after the calls to `malloc()`. What purpose does this serve, and why
+   might removing it spoil this demo of a buffer overrun?
