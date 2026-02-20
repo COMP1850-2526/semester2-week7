@@ -2,7 +2,7 @@
 
 `task1`: GDB's `info`, `display` and `watch` commands
 
-`task2`: More breakpoint options, `call`, `advance`
+`task2`: More breakpoint options, setting variables, calling functions.
 
 `task3`: Debugging a mysterious vulnerability in user login code
 
