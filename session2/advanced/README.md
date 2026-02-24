@@ -1,4 +1,4 @@
-# Session 1: Advanced Tasks
+# Session 2: Advanced Tasks
 
 Try some of these out if you finish the other tasks quickly and wish to
 explore further.
