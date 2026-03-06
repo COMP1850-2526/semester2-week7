@@ -3,7 +3,7 @@
 CFLAGS = -g -Wall -Wextra -Werror
 
 pgm_tools: pgm_tools.c
-	gcc $(CFLAGS) pgm_tools.c -o pgm_tools -lm
+	gcc $(CFLAGS) pgm_tools.c -o pgm_tools
 
 clean:
 	@rm -f pgm_tools

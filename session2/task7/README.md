@@ -75,6 +75,9 @@ This will allow you to see the actual images instead of just the raw text data.
 2. Use GDB and the other tools explored this week to investigate the nature
    of these problems, then fix them.
 
+   Note: there are **five** problems that will need to be fixed, and not
+   all of them are obvious issues!
+
 3. See if there are further improvements that can be made to the code. For
    example, the way that filenames are read by the application could be
    improved. Also, the application currently doesn't support the use
